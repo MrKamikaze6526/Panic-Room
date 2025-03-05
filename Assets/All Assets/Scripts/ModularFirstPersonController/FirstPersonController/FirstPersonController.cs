@@ -236,7 +236,7 @@ public class FirstPersonController : MonoBehaviour
         #region Camera
 
         // Control camera movement
-        if(cameraCanMove)
+        if(cameraCanMove && isGrounded)
         {
             yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
 
@@ -389,9 +389,15 @@ public class FirstPersonController : MonoBehaviour
 
         CheckGround();
 
-        if(enableHeadBob)
+        if(enableHeadBob && isGrounded)
         {
             HeadBob();
+        }
+
+        // If the character is not grounded, shoot it back down
+        if (!isGrounded)
+        {
+            rb.AddForce(Vector3.down * 1000f);
         }
     }
 
@@ -559,8 +565,6 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 }
-
-
 
 // Custom Editor
 #if UNITY_EDITOR
