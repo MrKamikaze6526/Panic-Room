@@ -42,6 +42,7 @@ public class EnemyScript : MonoBehaviour
     {
         // Initialize components
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false; // Prevent NavMeshAgent from updating rotation
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerMovement = player.GetComponent<FirstPersonController>();
 
