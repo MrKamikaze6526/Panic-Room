@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -19.62f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
-
+    //s
     [Header("Crouch Settings")]
     [SerializeField] private float standingHeight = 2f;
     [SerializeField] private float crouchHeight = 1f;
